@@ -1,0 +1,49 @@
+% include("header", title="Users")
+    <main>
+        <main>
+            <div id="form-container">
+                <h3 id="singup-title">Sign Up</h3>
+                    <!-- error messages -->
+                    % if error == "user_first_name":
+                        <div class="alert alert-danger" role="alert">
+                            Please fill out all the required fields!
+                        </div>
+                    % end 
+                    % if error == "user_last_name":
+                        <div class="alert alert-danger" role="alert">
+                            Please fill out all the required fields!
+                        </div>
+                    % end
+                    % if error == "user_email":
+                        <div class="alert alert-danger" role="alert">
+                            Please enter a valid email!
+                        </div>
+                    % end
+                    % if error == "user_password":
+                        <div class="alert alert-danger" role="alert">
+                            Please enter a valid password!
+                        </div>
+                    % end
+                    <form action="/signup" method="POST">
+                        <div id="input-container">
+                            
+                            <label for="firstname">First name</label>
+                            <input name="user_first_name" id="firstname" type="text" value="{{user_first_name or ''}}">
+                            
+                            <label for="lastname">Last name</label>
+                            <input name="user_last_name" id="lastname" type="text" value="{{user_last_name or ''}}">
+                            
+                            <label for="email">Email</label>
+                            <input name="user_email" id="email" type="email" value="{{user_email or ''}}">
+                            
+                            <label for="password">Password</label>
+                            <input name="user_password" id="password" type="password">
+                            <label>Pasword ( min 6 max 50 characters )</label><br>
+                            <button id="signup-btn">Sign Up</button>
+                        </div>
+                     </form>
+            </div>
+        </main>
+    % include("footer")
+    </main>
+% include("footer")

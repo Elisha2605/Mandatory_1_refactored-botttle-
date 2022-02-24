@@ -1,0 +1,15 @@
+from bottle import get, request, redirect, view
+import data
+
+
+################# USERS / GET ###################
+@get("/users")
+@view("users")
+def _():
+
+    user_sessin_jwt = request.get_cookie("jwt")
+    
+    if user_sessin_jwt not in data.SESSIONS:
+        return redirect("/login")
+   
+    return dict(users=data.USERS)

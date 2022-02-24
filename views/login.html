@@ -1,0 +1,21 @@
+% include("header", title="Login")
+<main>
+    <div id="form-container" class="login_container">
+        <h3 id="login-title">Login</h3>
+            <!-- error messages -->
+            <form action="/login" method="POST">
+                <div id="input-container">
+                
+                    <label for="email">Email</label>
+                    <input name="user_email" id="email" type="email">
+                    
+                    <label for="password">Password</label>
+                    <input name="user_password" id="password" type="password">
+                    <label>Pasword ( min 6 max 50 characters )</label><br>
+                    <button type="submit" id="signup-btn">Login</button>
+
+                </div>
+             </form>
+    </div>
+</main>
+% include("footer")

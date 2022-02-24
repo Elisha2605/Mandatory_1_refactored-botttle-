@@ -1,0 +1,44 @@
+% include("header", title="Users")
+    <main>
+        <h1>Users</h1>
+        <div id="table-container">
+            <table class="table">
+            
+                <thead>
+                <tr>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">ID</th>
+                </tr>
+                </thead>
+                
+                <tbody>
+                %for user in users:
+                    <tr>
+                        <form action="delete-user" method="POST">
+                            <input name="user_id" type="hidden" value='{{ user["id"] }}'>
+                            <td>{{user["firstname"]}}</td>
+                            <td>{{user["lastname"]}}</td>
+                            <td>{{user["email"]}}</td>
+                            <td>{{user["password"]}}</td>
+                            <td scope="row">{{user["id"]}}</td>
+                            <td><button name="user_id" type="submit" class="btn btn-sm btn-primary btn">edit</button></td>
+                            <td><button class="btn btn-sm btn-danger btn">delete</button></td>
+                        </form>
+                    </tr> 
+                %end
+                </tbody>
+                
+            </table>
+
+            % if users == []:         
+                <div>
+                    Sorry, no users to show
+                </div>
+            % end
+
+        </div>
+    </main>
+% include("footer")
